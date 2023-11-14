@@ -18,3 +18,15 @@
         <a href="{{ link }}" class="btn btn-primary">Go somewhere</a>
     </div>
 </div>
+
+
+<div class="card" style="width: 20rem;">
+    <img src="{{ asset(fichier.pathname) }}" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">{{ fichier.filename }}</h5>
+        <p class="card-text">
+            Taille de l'image : {{ fichier.size }} octets <br>
+            Date de création : {{ fichier.ctime|date("d/m/Y") }}
+        </p>
+    </div>
+</div>
