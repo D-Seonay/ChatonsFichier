@@ -56,6 +56,13 @@ class HomeController extends AbstractController
                     'label' => 'Image à partir des documents',
                     'required' => false,
                 ])
+                //Choix du dossier
+                ->add('dossier', TextType::class, [
+                    'label' => 'Nom du dossier',
+                    'attr' => [
+                        'placeholder' => 'Nom du dossier',
+                    ],
+                ])
                 ->add('submit', SubmitType::class, [
                     'label' => 'Ajouter l\'image',
                     'attr' => [
@@ -67,7 +74,11 @@ class HomeController extends AbstractController
                 if ($formImage->isSubmitted() && $formImage->isValid()) {
                     $data = $formImage->getData();
                     $fs = new Filesystem();
-                    $fs->copy($data['imageFile']->getPathname(), "img/".$data['imageFile']->getClientOriginalName());
+                    // ajouter l'image dans le dossier si il n'est pas créé je le créé
+                    if(!$fs->exists("img/".$data['dossier'])){
+                        $fs->mkdir("img/".$data['dossier']);
+                    }
+                    $data['imageFile']->move("img/".$data['dossier'], $data['imageFile']->getClientOriginalName());
                     return $this->redirectToRoute('app_home');
                 }
 
