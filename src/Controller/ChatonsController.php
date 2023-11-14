@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ChatonsController extends AbstractController
 {
-    #[Route('/', name: 'app_chatons')]
+    #[Route('/tets', name: 'app_chatons')]
     public function index(): Response
     {
         $cards = [
@@ -35,6 +35,6 @@ class ChatonsController extends AbstractController
             ],
         ];
     
-        return $this->render('chatons/index.html.twig', ['cards' => $cards]);
+        return $this->render('home/index.html.twig', ['cards' => $cards]);
     }
 }
