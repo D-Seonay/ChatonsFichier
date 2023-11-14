@@ -3,14 +3,6 @@
 {% block title %}Photothèque de chatons version ficier{% endblock %}
 
 {% block body %}
-<style>
-    .a {
-        text-decoration: none;
-    }
-    .a:hover {
-        text-decoration: underline;
-    }
-</style>
     <h1>Bienvenue sur la photothèque de chatons</h1>
     <p>Version fichier.</p>
     <ul>
@@ -26,4 +18,7 @@
 
     <h2> Ajouter un dossier </h2>
     {{form(formulaire) }}
+
+    <h2> Ajouter une image </h2>
+    {{form(formulaireImage ) }}
 {% endblock %}
