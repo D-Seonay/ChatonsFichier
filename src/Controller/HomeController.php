@@ -52,17 +52,30 @@ class HomeController extends AbstractController
 
             //Ajouter une image
             $formImage = $this->createFormBuilder()
-                ->add('imageFile', FileType::class, [
-                    'label' => 'Image à partir des documents',
-                    'required' => false,
-                ])
                 //Choix du dossier
                 ->add('dossier', TextType::class, [
                     'label' => 'Nom du dossier',
                     'attr' => [
                         'placeholder' => 'Nom du dossier',
                     ],
+                    'required' => false,
+                    'empty_data' => 'Chat',
+                    
                 ])
+                //Ajout du nom de l'image
+                ->add('nomImage', TextType::class, [
+                    'label' => 'Nom de l\'image',
+                    'attr' => [
+                        'placeholder' => 'Nom de l\'image',
+                    ],
+                    'required' => false,
+                ])
+                //Ajout de l'url de l'image
+                ->add('imageFile', FileType::class, [
+                    'label' => 'Image à partir des documents',
+                    'required' => true,
+                ])
+                
                 ->add('submit', SubmitType::class, [
                     'label' => 'Ajouter l\'image',
                     'attr' => [
@@ -70,6 +83,8 @@ class HomeController extends AbstractController
                     ],
                 ])
                 ->getForm();
+
+
                 $formImage->handleRequest($request);
                 if ($formImage->isSubmitted() && $formImage->isValid()) {
                     $data = $formImage->getData();
