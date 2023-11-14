@@ -4,14 +4,6 @@
 
 {% block body %}
 <style>
-    
-    /* Color Theme Swatches in Hex */
-.Deep-Teal-Sea-1-hex { color: #012E40; }
-.Deep-Teal-Sea-2-hex { color: #024959; }
-.Deep-Teal-Sea-3-hex { color: #026773; }
-.Deep-Teal-Sea-4-hex { color: #3CA6A6; }
-.Deep-Teal-Sea-5-hex { color: #F2E3D5; }
-
     .title { text-align: center;  color : #012E40;}
     .cards { display: flex; flex-wrap: wrap; justify-content: center; }
     .card { margin: 30px 10px 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3); :hover border-color: #012E40;  }
@@ -27,33 +19,12 @@
 <div class="title">
     <h1>ChatonsController</h1>
 </div>
+
 <div class="cards">
 
-    <div class="card" style="width: 18rem;">
-        <img src="./img/cat1.jpg" class="card-img-top" alt="cat 1" >
-        <div class="card-body">
-        <h5 class="card-title">Chat Mignon</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
+    {% for card in cards %}
+        {% include './chatons/card.html.twig' with card %}
+    {% endfor %}
 
-    <div class="card" style="width: 18rem;">
-        <img src="./img/cat2.jpg" class="card-img-top" alt="cat 2">
-        <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-        <img src="./img/cat3.jpg" class="card-img-top" alt="cat 3">
-        <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Chat blanc </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
 </div>
 {% endblock %}
