@@ -4,17 +4,37 @@
 
 {% block body %}
 <style>
+    .cards { display: flex; flex-wrap: wrap; justify-content: center; }
+    .card { margin: 30px 10px 20px; }
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
+<div class="cards">
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">Chat Mignon</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/seonay/Projects/Development/School/Symfony/ChatonsFichier/src/Controller/ChatonsController.php'|file_link(0) }}">src/Controller/ChatonsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/seonay/Projects/Development/School/Symfony/ChatonsFichier/templates/chatons/index.html.twig'|file_link(0) }}">templates/chatons/index.html.twig</a></code></li>
-    </ul>
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

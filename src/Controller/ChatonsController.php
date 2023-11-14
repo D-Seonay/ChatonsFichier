@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ChatonsController extends AbstractController
 {
-    #[Route('/chatons', name: 'app_chatons')]
+    #[Route('/', name: 'app_chatons')]
     public function index(): Response
     {
         return $this->render('chatons/index.html.twig', [
