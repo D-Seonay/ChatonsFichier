@@ -16,15 +16,13 @@
     .card-img-top:hover { filter : grayscale(0%); }
     .btn-primary { background-color: #012E40; border-color: #012E40; position: relative; left: 50%; transform: translateX(-50%); hover: background-color: #012E40; border-color: #012E40;}
 </style>
+
 <div class="title">
-    <h1>ChatonsController</h1>
+    <h1>Chatons cards</h1>
 </div>
-
 <div class="cards">
-
     {% for card in cards %}
         {% include './chatons/card.html.twig' with card %}
     {% endfor %}
-
 </div>
 {% endblock %}
