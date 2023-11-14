@@ -37,6 +37,9 @@
 					Taille de l'image : {{ fichier.size }} octets <br>
 					Date de création : {{ fichier.ctime|date("d/m/Y") }}
 				</p>
+				<div>
+					<a href="{{ asset(fichier.pathname) }}" download="{{ fichier.filename }}" class="btn btn-primary">télécharger</a>
+				</div>
 			</div>
 		</div>
 
