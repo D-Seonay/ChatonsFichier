@@ -7,7 +7,7 @@
     .page { display: flex; flex-direction: column; justify-content: center; align-items: center; }
 	h1 { text-align: center; color : #012E40; font-size: 50px; }
     .cards { display: flex; flex-wrap: wrap; justify-content: center; }
-    @media screen and (max-width: 768px) { .cards { flex-direction: column; } }
+    @media (max-width: 768px) { .cards { display: flex; flex-direction: column; justify-content: center; align-items: center; } }
     .card { margin: 30px 10px 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3); :hover border-color: #012E40;  }
     .card-body { padding: 20px 15px; }
     .card-title { text-align: center; color : #012E40; }
@@ -20,8 +20,8 @@
 	.button-back { background-color: #012E40; border-color: #012E40; border-radius: 10px; position: relative; left: 50%; transform: translateX(-50%); hover: background-color: #012E40; border-color: #012E40;}
 	.link-back { color: #FFF; text-decoration: none; }
     .text-span { color: #012E40; }
-    .forms { display: flex; justify-content: space-around; flex-direction: row;}
-    @media screen and (max-width: 568px) { .forms { flex-direction: column; } }
+    @media (max-width: 768px) { .forms { display: flex; justify-content: space-around; flex-direction: column; } }
+    .forms { display: flex; justify-content: space-around; flex-wrap; wrap; margin: 20px; }  
     .form { display:flex; width: 100%; flex-direction: column; justify-content: center; align-items: center; background-color: #F0F0F0F0; border-radius: 10px; padding: 20px; margin: 20px; box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);}
 </style>
 <div class="page">
