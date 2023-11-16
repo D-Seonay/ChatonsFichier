@@ -17,12 +17,13 @@
     .btn-primary { background-color: #012E40; border-color: #012E40; position: relative; left: 50%; transform: translateX(-50%); hover: background-color: #012E40; border-color: #012E40;}
 	.button-back { background-color: #012E40; border-color: #012E40; border-radius: 10px; position: relative; left: 50%; transform: translateX(-50%); hover: background-color: #012E40; border-color: #012E40;}
 	.link-back { color: #FFF; text-decoration: none; }
+    .text-span { color: #012E40; }
 
     .forms { display: flex; justify-content: space-around; }
-    .form { display:flex; width: 40%; flex-direction: column; justify-content: center; align-items: center;}
+    .form { display:flex; width: 40%; flex-direction: column; justify-content: center; align-items: center; background-color: #F0F0F0F0; border-radius: 10px; padding: 20px; }
 </style>
 
-    <h1>Bienvenue sur la photothèque de chatons</h1>
+    <h1>Bienvenue sur la <span class="text-span">photothèque</span> de chatons</h1>
     <div class="cards">
         {% for dossier in dossiers %}
             <div class="card" style="width: 18rem;">
