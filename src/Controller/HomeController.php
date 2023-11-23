@@ -50,7 +50,7 @@ class HomeController extends AbstractController
                 return $this->redirectToRoute('app_dossier', ['nomDuDossier' => $data['nomDuDossier']]);
             }
 
-            //Ajouter une image
+            //Ajouter une image avec choix du dossier
             $formImage = $this->createFormBuilder()
                 //Choix du dossier
                 ->add('dossier', TextType::class, [
@@ -99,9 +99,6 @@ class HomeController extends AbstractController
 
             //Gestion de la soumission du formulaire
 
-            
-
-
         $finder= new Finder();
         $finder->directories()->in("img");
 
@@ -121,4 +118,5 @@ class HomeController extends AbstractController
             "dossiers"=>$finder,
         ]);
     }
+    
 }
