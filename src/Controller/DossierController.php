@@ -16,42 +16,41 @@ class DossierController extends AbstractController
     #[Route('/img/{nomDuDossier}', name: 'app_dossier')]
     public function index($nomDuDossier, Request $request): Response
     {
-        $chemin="img/$nomDuDossier";
+        $chemin = "img/$nomDuDossier";
 
-        //on vérifie que le dossier existe
-        $fs= new Filesystem();
+        // on vérifie que le dossier existe
+        $fs = new Filesystem();
         if (!$fs->exists($chemin)) {
-            //je renvoie une erreur 404
+            // je renvoie une erreur 404
             throw $this->createNotFoundException("Ce dossier n'existe pas");
         }
 
-         //Ajouter une image avec choix du dossier
-         $formulaireImageAdd = $this->createFormBuilder()
-         //Ajout de l'url de l'image
-         ->add('imageFile', FileType::class, [
-             'label' => 'Image à partir des documents',
-             'required' => true,
-         ])
-         
-         ->add('submit', SubmitType::class, [
-             'label' => 'Ajouter l\'image',
-             'attr' => [
-                 'class' => 'btn btn-primary',
-             ],
-         ])
-         ->getForm();
-     
-         $formulaireImageAdd->handleRequest($request);
-         if ($formulaireImageAdd->isSubmitted() && $formulaireImageAdd->isValid()) {
-             $data = $formulaireImageAdd->getData();
-             $fs = new Filesystem();
-             //comment faire pour l'ajoute dans le dossier 
-                $data['imageFile']->move($chemin, $data['imageFile']->getClientOriginalName());
-             return $this->redirectToRoute('app_home');
-         }
+        // Ajouter une image avec choix du dossier
+        $formulaireImageAdd = $this->createFormBuilder()
+            // Ajout de l'url de l'image
+            ->add('imageFile', FileType::class, [
+                'label' => 'Image à partir des documents',
+                'required' => true,
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => 'Ajouter l\'image',
+                'attr' => [
+                    'class' => 'btn btn-primary',
+                ],
+            ])
+            ->getForm();
 
-        //je vais constituer le modèle à envoyer à la vue
-        $finder= new Finder();
+        $formulaireImageAdd->handleRequest($request);
+        if ($formulaireImageAdd->isSubmitted() && $formulaireImageAdd->isValid()) {
+            $data = $formulaireImageAdd->getData();
+            $fs = new Filesystem();
+            // comment faire pour l'ajoute dans le dossier
+            $data['imageFile']->move($chemin, $data['imageFile']->getClientOriginalName());
+            return $this->redirectToRoute('app_home');
+        }
+
+        // je vais constituer le modèle à envoyer à la vue
+        $finder = new Finder();
         $finder->files()->in($chemin);
 
         return $this->render('dossier/index.html.twig', [
